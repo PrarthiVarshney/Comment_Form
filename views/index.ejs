@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #heading {
+            background-color: cornsilk;
+        }
+    </style>
+    <!-- <link rel="stylesheet" type="text/css" href="/css/index_style.css"> -->
+
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Displaying all the comments</h1>
+    <% for(let item of comments){ %>
+        <h1 id="heading">
+            <%= item.id %>
+        </h1>
+        <h2>
+            <%= item.username %>
+        </h2>
+        <p>
+            <%= item.comment %>
+        </p>
+        <a href="/comments/<%= item.id %>">Show this Comments</a>
+        <a href="/comments/<%= item.id %>/edit">Edit this Comments</a>
+
+        <form action="/comments/<%= item.id%>?_method=DELETE" method="post">
+            <button>DELETE</button>
+        </form>
+        <% } %>
+</body>
+
+</html>
